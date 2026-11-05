@@ -18,32 +18,38 @@
  <link rel="stylesheet" href="./style-neni-20261106-v9.css?v=neni-20261106-v11" />
 
  <style>
-  /* 背景亮度平衡：保留原圖，只修正偏側光暈、霧化與手機尺寸 */
-  .sky-glow,
-  .mist,
-  .mist-a,
-  .mist-b {
-   display: none !important;
+  /* 移除局部泛白的光暈及霧氣，保留原始背景圖 */
+  .sky-glow, .mist, .mist-a, .mist-b {
+    display: none !important;
   }
 
-  /* 左側輕微降亮，往右逐漸淡出，不影響搜尋或資料內容 */
+  /* 讓左側白色雛菊更加清楚，漸層向右自然消失 */
   body::before {
-   content: "";
-   display: block !important;
-   position: fixed;
-   inset: 0;
-   pointer-events: none;
-   z-index: 0;
-   background: linear-gradient(90deg,
-    rgba(15, 78, 95, .16) 0%,
-    rgba(15, 78, 95, .08) 42%,
-    rgba(15, 78, 95, 0) 100%);
+    content: "";
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 18% 34%,
+        rgba(7, 52, 64, 0.22) 0%,
+        rgba(7, 52, 64, 0.16) 18%,
+        rgba(7, 52, 64, 0.08) 34%,
+        rgba(7, 52, 64, 0) 52%),
+      linear-gradient(90deg,
+        rgba(8, 56, 68, 0.28) 0%,
+        rgba(8, 56, 68, 0.20) 24%,
+        rgba(8, 56, 68, 0.11) 46%,
+        rgba(8, 56, 68, 0.04) 64%,
+        rgba(8, 56, 68, 0) 82%);
   }
 
   @media (max-width: 640px) {
-   body {
-    background-size: cover !important;
-   }
+    body {
+      background-size: cover !important;
+      background-position: center center !important;
+    }
   }
  </style>
 
