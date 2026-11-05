@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh-Hant">
 <head>
@@ -15,7 +16,7 @@
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet" />
  <link rel="stylesheet" href="./style-neni-20261106-v9.css?v=neni-20261106-v9" />
- <script defer src="./script-neni-20261106-v9.js?v=neni-20261106-v9"></script>
+ <script defer src="./script-neni-20261106-v10.js?v=neni-20261106-v10"></script>
 </head>
 <body>
  <div class="sky-glow" aria-hidden="true"></div>
@@ -39,7 +40,7 @@
    <div class="search-card" role="search">
     <label for="searchInput">懶得找就來查查看</label>
     <div class="search-row">
-     <input id="searchInput" type="search" autocomplete="off" placeholder="輸入名稱搜尋…" />
+     <input id="searchInput" type="search" autocomplete="off" placeholder="輸入帳號或名字搜尋…" />
      <button id="clearBtn" type="button">顯示全部</button>
     </div>
     <p id="resultText" class="result-text" role="status" aria-live="polite">資料載入中…</p>
@@ -48,8 +49,22 @@
   <section class="panel content-panel" aria-label="存鑽存歌資料列表">
    <div class="table-wrap" tabindex="0" aria-label="資料表固定顯示 A 到 I 欄；欄數較多可橫向捲動">
     <table>
-     <thead><tr id="tableHead"><th class="col-a" scope="col">帳號</th><th class="col-b" scope="col">B 欄</th><th class="col-c" scope="col">存歌數量🎵</th><th class="col-d" scope="col">存爆數量🎵</th><th class="col-e" scope="col">存鑽數量</th><th class="col-f" scope="col">存圖數量</th><th class="col-g" scope="col">存LOL數量</th><th class="col-h" scope="col">存特戰數量</th><th class="col-i" scope="col">更新時間</th></tr></thead>
-     <tbody id="tableBody"><tr class="empty-row"><td colspan="1">資料載入中…</td></tr></tbody>
+     <thead>
+      <tr id="tableHead">
+       <th class="col-a" scope="col">帳號</th>
+       <th class="col-b" scope="col">名字</th>
+       <th class="col-c" scope="col">存歌數量</th>
+       <th class="col-d" scope="col">存爆數量</th>
+       <th class="col-e" scope="col">存鑽數量</th>
+       <th class="col-f" scope="col">存圖數量</th>
+       <th class="col-g" scope="col">存LOL數量</th>
+       <th class="col-h" scope="col">存特戰數量</th>
+       <th class="col-i" scope="col">更新時間</th>
+      </tr>
+     </thead>
+     <tbody id="tableBody">
+      <tr class="empty-row"><td colspan="9">資料載入中…</td></tr>
+     </tbody>
     </table>
    </div>
   </section>
