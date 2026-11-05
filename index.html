@@ -2,71 +2,238 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <meta name="theme-color" content="#14768a" />
- <meta name="robots" content="noarchive" />
- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
- <meta http-equiv="Pragma" content="no-cache" />
- <meta http-equiv="Expires" content="0" />
- <title>Neniの存鑽存歌</title>
- <meta name="description" content="Neniの存鑽存歌｜資料即時同步 Google 試算表" />
- <link rel="icon" type="image/svg+xml" href="./assets/daisy.svg?v=neni-20261106-v11" />
- <link rel="preconnect" href="https://fonts.googleapis.com" />
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="./style-neni-20261106-v9.css?v=neni-20261106-v11" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#91b4b7">
+<meta name="robots" content="noarchive">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Neniの存鑽存歌</title>
+<meta name="description" content="Neniの存鑽存歌｜資料即時同步 Google 試算表">
+<link rel="icon" type="image/svg+xml" href="./assets/daisy.svg?v=neni-20261106-v11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style-neni-20261106-v9.css?v=neni-20261106-v11">
 
- <style>
-  /* 移除局部泛白的光暈及霧氣，保留原始背景圖 */
-  .sky-glow, .mist, .mist-a, .mist-b {
-    display: none !important;
+<style>
+/* N9 色系：灰綠、霧藍綠、米白 */
+:root {
+  --sky-50: #edf6f2;
+  --sky-100: #dceae6;
+  --sky-200: #cbded9;
+  --sky-300: #91b4b7;
+  --sky-500: #6b9795;
+  --sky-bg: #91b4b7;
+  --ink: #29484d;
+  --ink-soft: #66858a;
+  --paper: rgba(249,253,250,.70);
+  --paper-solid: #f3f7f2;
+  --line: rgba(82,109,126,.18);
+  --shadow: 0 18px 45px rgba(64,89,105,.18);
+}
+
+/* 使用 N9 的背景圖片與柔和漸層 */
+body {
+  color: var(--ink);
+  background-color: #91b4b7 !important;
+  background-image:
+    linear-gradient(
+      rgba(241,249,247,.08),
+      rgba(239,248,246,.14)
+    ),
+    url('https://lionliontomato.github.io/N9/assets/neni-background-desktop.jpg?v=20261105-neni-v3') !important;
+  background-size: cover !important;
+  background-position: center top !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+/* 移除 N21 舊版的局部光暈、霧氣及左側加深 */
+body::before,
+.sky-glow,
+.mist,
+.mist-a,
+.mist-b {
+  display: none !important;
+}
+
+/* 半透明卡片 */
+.panel {
+  background: linear-gradient(
+    135deg,
+    rgba(249,253,250,.66),
+    rgba(219,237,231,.52)
+  ) !important;
+  border-color: rgba(255,255,255,.70) !important;
+  box-shadow: 0 18px 45px rgba(36,68,75,.14) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.hero::before,
+.hero::after {
+  border-color: rgba(107,151,149,.24) !important;
+}
+
+/* Neni 標誌 */
+.seal {
+  background: linear-gradient(
+    135deg,
+    #557b7f,
+    #9bb9b2
+  ) !important;
+  box-shadow: 0 14px 32px rgba(64,89,105,.20) !important;
+}
+
+.eyebrow {
+  color: #6b9795 !important;
+}
+
+h1 {
+  color: #375c61 !important;
+  text-shadow: 0 6px 18px rgba(64,89,105,.10) !important;
+}
+
+.subtitle,
+.result-text {
+  color: #66858a !important;
+}
+
+/* 搜尋區域 */
+.search-card {
+  background: rgba(255,255,255,.76) !important;
+  box-shadow: 0 15px 40px rgba(64,89,105,.10) !important;
+}
+
+.search-card label {
+  color: #557b7f !important;
+}
+
+input[type="search"] {
+  background: rgba(255,255,255,.88) !important;
+  border-color: rgba(111,135,149,.22) !important;
+  color: #29484d !important;
+}
+
+input[type="search"]:focus {
+  border-color: #79b2a9 !important;
+  box-shadow: 0 0 0 4px rgba(121,178,169,.19) !important;
+}
+
+button {
+  background: linear-gradient(
+    135deg,
+    #6b9795,
+    #9aaeb8
+  ) !important;
+  box-shadow: 0 12px 26px rgba(64,89,105,.20) !important;
+}
+
+button:hover {
+  box-shadow: 0 16px 32px rgba(64,89,105,.25) !important;
+}
+
+/* 資料表 */
+.table-wrap {
+  background: rgba(255,255,255,.64) !important;
+  border-color: rgba(82,109,126,.18) !important;
+  scrollbar-color: #91b4b7 #edf6f2 !important;
+}
+
+th,
+td {
+  border-bottom-color: rgba(82,109,126,.14) !important;
+}
+
+td {
+  color: #29484d !important;
+}
+
+td a {
+  color: #557b7f !important;
+}
+
+tbody tr:hover {
+  background: rgba(220,234,230,.47) !important;
+}
+
+.name-cell {
+  color: #375c61 !important;
+}
+
+/* 九欄柔和配色 */
+.col-a {
+  background: linear-gradient(135deg,#557b7f,#7fa5a0) !important;
+}
+.col-b {
+  background: linear-gradient(135deg,#6b9795,#a1bdb3) !important;
+}
+.col-c {
+  background: linear-gradient(135deg,#879fa8,#b6c8cb) !important;
+}
+.col-d {
+  background: linear-gradient(135deg,#ab98a8,#d0c1c7) !important;
+}
+.col-e {
+  background: linear-gradient(135deg,#b5a17d,#d7c8a4) !important;
+}
+.col-f {
+  background: linear-gradient(135deg,#7f9e91,#b2d0bd) !important;
+}
+.col-g {
+  background: linear-gradient(135deg,#919bab,#bdc8d3) !important;
+}
+.col-h {
+  background: linear-gradient(135deg,#aa9b89,#d2c8b8) !important;
+}
+.col-i {
+  background: linear-gradient(135deg,#789ba0,#aac5c4) !important;
+}
+
+/* 頁尾 */
+.site-footer {
+  color: #294d52 !important;
+  text-shadow: none !important;
+}
+
+.site-footer a {
+  color: #2b5f65 !important;
+  border-bottom-color: rgba(43,95,101,.35) !important;
+}
+
+.floating-icons span {
+  color: rgba(64,89,105,.50) !important;
+}
+
+/* 手機版同樣使用 N9 背景 */
+@media (max-width:768px) {
+  body {
+    background-image:
+      linear-gradient(
+        rgba(239,249,245,.05),
+        rgba(243,249,247,.16)
+      ),
+      url('https://lionliontomato.github.io/N9/assets/neni-background-mobile.jpg?v=20261105-neni-v3') !important;
+    background-size: cover !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
   }
+}
+</style>
 
-  /* 讓左側白色雛菊更加清楚，漸層向右自然消失 */
-  body::before {
-    content: "";
-    display: block !important;
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background:
-      radial-gradient(circle at 18% 34%,
-        rgba(7, 52, 64, 0.22) 0%,
-        rgba(7, 52, 64, 0.16) 18%,
-        rgba(7, 52, 64, 0.08) 34%,
-        rgba(7, 52, 64, 0) 52%),
-      linear-gradient(90deg,
-        rgba(8, 56, 68, 0.28) 0%,
-        rgba(8, 56, 68, 0.20) 24%,
-        rgba(8, 56, 68, 0.11) 46%,
-        rgba(8, 56, 68, 0.04) 64%,
-        rgba(8, 56, 68, 0) 82%);
-  }
-
-  @media (max-width: 640px) {
-    body {
-      background-size: cover !important;
-      background-position: center center !important;
-    }
-  }
- </style>
-
- <script>
+<script>
 (() => {
   'use strict';
-
-  // 來源 A~I 九欄，P/Q 設定網站標題。
-  // 搜尋同時支援 A 欄帳號與 B 欄名字。
 
   const SHEET_ID = '1MVOvkG312ke-sExe_DCS-5qAd4qtSLDn513-7XPYeNo';
   const SHEET_GID = '0';
   const TABLE_COLS = 9;
 
   const REQUIRED_HEADERS = [
-    null,
-    null,
+    null, null,
     '存歌數量',
     '存爆數量',
     '存鑽數量',
@@ -79,7 +246,6 @@
   const ROW_WIDTH = 17;
   const CONFIG_KEY = 15;
   const CONFIG_VALUE = 16;
-
   const DEFAULT_TITLE = 'Neniの存鑽存歌';
   const DEFAULT_SUBTITLE = '';
   const REFRESH_MS = 30000;
@@ -87,13 +253,11 @@
   const fmt = new Intl.NumberFormat('zh-Hant-TW');
   const $ = id => document.getElementById(id);
 
-  const clean = v =>
-    String(v ?? '')
-      .replace(/[\u200b-\u200d\u2060\ufeff]/gi, '')
-      .trim();
+  const clean = v => String(v ?? '')
+    .replace(/[\u200b-\u200d\u2060\ufeff]/gi, '')
+    .trim();
 
-  const lower = v =>
-    clean(v).toLocaleLowerCase('zh-Hant-TW');
+  const lower = v => clean(v).toLocaleLowerCase('zh-Hant-TW');
 
   const state = {
     headers: [],
@@ -154,14 +318,10 @@
       } else if (x === ',' && !quotes) {
         row.push(cell);
         cell = '';
-      } else if (
-        (x === '\n' || x === '\r') && !quotes
-      ) {
+      } else if ((x === '\n' || x === '\r') && !quotes) {
         if (x === '\r' && next === '\n') i++;
-
         row.push(cell);
         rows.push(row);
-
         row = [];
         cell = '';
       } else {
@@ -184,38 +344,19 @@
   }
 
   function configType(k) {
-    const key = lower(k).replace(
-      /[\s：:（）()_\-]/g,
-      ''
-    );
+    const key = lower(k).replace(/[\s：:（）()_\-]/g, '');
 
     if ([
-      '網站標題',
-      '網頁標題',
-      '主標題',
-      '網站主標題',
-      '網站大標題',
-      '大標題',
-      '網站名稱',
-      'sitetitle',
-      'maintitle',
-      'title'
-    ].includes(key)) {
-      return 'title';
-    }
+      '網站標題','網頁標題','主標題',
+      '網站主標題','網站大標題','大標題',
+      '網站名稱','sitetitle','maintitle','title'
+    ].includes(key)) return 'title';
 
     if ([
-      '網站小標題',
-      '網頁小標題',
-      '小標題',
-      '副標題',
-      '網站副標題',
-      '網頁副標題',
-      'sitesubtitle',
-      'subtitle'
-    ].includes(key)) {
-      return 'subtitle';
-    }
+      '網站小標題','網頁小標題','小標題',
+      '副標題','網站副標題','網頁副標題',
+      'sitesubtitle','subtitle'
+    ].includes(key)) return 'subtitle';
 
     return null;
   }
@@ -225,47 +366,35 @@
 
     rows.forEach(row => {
       const type = configType(row[CONFIG_KEY]);
-
       if (type) {
-        settings.set(
-          type,
-          clean(row[CONFIG_VALUE])
-        );
+        settings.set(type, clean(row[CONFIG_VALUE]));
       }
     });
 
     return {
-      title:
-        settings.get('title') || DEFAULT_TITLE,
-      subtitle:
-        settings.has('subtitle')
-          ? settings.get('subtitle')
-          : DEFAULT_SUBTITLE
+      title: settings.get('title') || DEFAULT_TITLE,
+      subtitle: settings.has('subtitle')
+        ? settings.get('subtitle')
+        : DEFAULT_SUBTITLE
     };
   }
 
   function isGenericLabel(x, i) {
-    return (
-      !x ||
+    return !x ||
       /^(?:Col(?:umn)?\s*\d+|[A-Q])$/i.test(x) ||
-      x === letter(i)
-    );
+      x === letter(i);
   }
 
   function isLikelyHeader(row) {
     const a = lower(row[0]);
     const b = lower(row[1]);
 
-    return (
-      /^(?:存鑽老闆|名稱|姓名|暱稱|名字|帳號|會員|name|user|id|項目)$/.test(a) ||
-      /^(?:存鑽數量|鑽石|存歌數量|數量|diamond|total)$/.test(b)
-    );
+    return /^(?:存鑽老闆|名稱|姓名|暱稱|名字|帳號|會員|name|user|id|項目)$/.test(a) ||
+      /^(?:存鑽數量|鑽石|存歌數量|數量|diamond|total)$/.test(b);
   }
 
   function parseGrid({rows, labels = []}) {
-    const headerAt = rows.findIndex(
-      row => clean(row[0])
-    );
+    const headerAt = rows.findIndex(row => clean(row[0]));
 
     const actualLabels = Array.from(
       {length: TABLE_COLS},
@@ -273,13 +402,8 @@
     );
 
     const labelHeader =
-      actualLabels.some(
-        (v, i) => !isGenericLabel(v, i)
-      ) &&
-      (
-        headerAt < 0 ||
-        !isLikelyHeader(rows[headerAt])
-      );
+      actualLabels.some((v, i) => !isGenericLabel(v, i)) &&
+      (headerAt < 0 || !isLikelyHeader(rows[headerAt]));
 
     const start = labelHeader
       ? Math.max(0, headerAt)
@@ -297,9 +421,7 @@
         (
           !isGenericLabel(actualLabels[i], i)
             ? actualLabels[i]
-            : i === 0
-              ? '帳號'
-              : '名字'
+            : i === 0 ? '帳號' : '名字'
         )
     );
 
@@ -308,13 +430,13 @@
         ? []
         : rows.slice(start)
     )
-      .filter(row => clean(row[0]))
-      .map(row =>
-        Array.from(
-          {length: TABLE_COLS},
-          (_, i) => clean(row[i])
-        )
-      );
+    .filter(row => clean(row[0]))
+    .map(row =>
+      Array.from(
+        {length: TABLE_COLS},
+        (_, i) => clean(row[i])
+      )
+    );
 
     return {
       headers,
@@ -326,19 +448,10 @@
   function formatValue(value, i) {
     if (i === 0) return value;
 
-    if (
-      /^[-+]?\d+(?:\.\d+)?$/.test(
-        value.replace(/,/g, '')
-      )
-    ) {
-      const numeric = Number(
-        value.replace(/,/g, '')
-      );
+    if (/^[-+]?\d+(?:\.\d+)?$/.test(value.replace(/,/g, ''))) {
+      const numeric = Number(value.replace(/,/g, ''));
 
-      if (
-        Number.isFinite(numeric) &&
-        !(/^0\d/.test(value))
-      ) {
+      if (Number.isFinite(numeric) && !(/^0\d/.test(value))) {
         return fmt.format(numeric);
       }
     }
@@ -351,12 +464,10 @@
 
     if (url) {
       const link = document.createElement('a');
-
       link.href = value;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.textContent = value;
-
       td.append(link);
     } else {
       td.textContent = value;
@@ -370,34 +481,22 @@
     names.forEach((name, i) => {
       const th = document.createElement('th');
       th.scope = 'col';
-
       th.className = [
-        'col-a',
-        'col-b',
-        'col-c',
-        'col-d',
-        'col-e',
-        'col-f',
-        'col-g',
-        'col-h',
-        'col-i'
+        'col-a','col-b','col-c',
+        'col-d','col-e','col-f',
+        'col-g','col-h','col-i'
       ][i];
 
-      th.textContent =
-        REQUIRED_HEADERS[i] || name;
-
+      th.textContent = REQUIRED_HEADERS[i] || name;
       thead.append(th);
     });
   }
 
-  // A 欄帳號與 B 欄名字搜尋。
-
+  // 搜尋 A 欄帳號或 B 欄名字。
   function render() {
     if (!state.loaded) return;
 
-    const keyword = lower(
-      $('searchInput').value
-    );
+    const keyword = lower($('searchInput').value);
 
     const rows = keyword
       ? state.records.filter(row =>
@@ -408,41 +507,28 @@
 
     const tbody = $('tableBody');
     tbody.replaceChildren();
-
     renderHeaders(state.headers);
 
     if (!rows.length) {
       const tr = document.createElement('tr');
       tr.className = 'empty-row';
-
       const td = document.createElement('td');
       td.colSpan = TABLE_COLS;
-
       td.textContent = keyword
         ? '目前沒有符合條件的資料'
         : '目前沒有可顯示的資料';
-
       tr.append(td);
       tbody.append(tr);
     } else {
-      const fragment =
-        document.createDocumentFragment();
+      const fragment = document.createDocumentFragment();
 
       rows.forEach(row => {
         const tr = document.createElement('tr');
 
         row.forEach((v, i) => {
           const td = document.createElement('td');
-
-          if (i === 0) {
-            td.className = 'name-cell';
-          }
-
-          setLinkOrText(
-            td,
-            formatValue(v, i)
-          );
-
+          if (i === 0) td.className = 'name-cell';
+          setLinkOrText(td, formatValue(v, i));
           tr.append(td);
         });
 
@@ -460,22 +546,15 @@
   function resetCopy() {
     $('siteTitle').textContent = '';
     $('siteSubtitle').textContent = '';
-
-    document.title =
-      'Neniの存鑽存歌｜同步中';
-
-    $('siteTitle').setAttribute(
-      'aria-busy',
-      'true'
-    );
+    document.title = 'Neniの存鑽存歌｜同步中';
+    $('siteTitle').setAttribute('aria-busy', 'true');
   }
 
   function showLoading(message) {
     resetCopy();
 
     renderHeaders([
-      '帳號',
-      '名字',
+      '帳號','名字',
       ...REQUIRED_HEADERS.slice(2)
     ]);
 
@@ -483,14 +562,11 @@
 
     const tr = document.createElement('tr');
     tr.className = 'empty-row';
-
     const td = document.createElement('td');
     td.colSpan = TABLE_COLS;
     td.textContent = message;
-
     tr.append(td);
     $('tableBody').append(tr);
-
     $('resultText').textContent = message;
   }
 
@@ -504,30 +580,21 @@
 
       const finish = () => {
         if (done) return false;
-
         done = true;
         clearTimeout(timer);
         delete window[cb];
         tag.remove();
-
         return true;
       };
 
       const timer = setTimeout(() => {
-        if (finish()) {
-          reject(
-            new Error('試算表連線逾時')
-          );
-        }
+        if (finish()) reject(new Error('試算表連線逾時'));
       }, 18000);
 
       window[cb] = response => {
         if (!finish()) return;
 
-        if (
-          !response ||
-          response.status === 'error'
-        ) {
+        if (!response || response.status === 'error') {
           return reject(
             new Error(
               response?.errors?.[0]?.message ||
@@ -537,9 +604,7 @@
         }
 
         try {
-          resolve(
-            gvizToGrid(response.table)
-          );
+          resolve(gvizToGrid(response.table));
         } catch (e) {
           reject(e);
         }
@@ -549,26 +614,13 @@
         `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq`
       );
 
-      u.searchParams.set(
-        'gid',
-        SHEET_GID
-      );
-
-      u.searchParams.set(
-        'headers',
-        '0'
-      );
-
-      u.searchParams.set(
-        'tq',
-        'select *'
-      );
-
+      u.searchParams.set('gid', SHEET_GID);
+      u.searchParams.set('headers', '0');
+      u.searchParams.set('tq', 'select *');
       u.searchParams.set(
         'tqx',
         `out:json;responseHandler:${cb}`
       );
-
       u.searchParams.set(
         '_',
         `${Date.now()}-${Math.random()}`
@@ -578,11 +630,7 @@
 
       tag.onerror = () => {
         if (finish()) {
-          reject(
-            new Error(
-              '無法連線 Google 試算表'
-            )
-          );
+          reject(new Error('無法連線 Google 試算表'));
         }
       };
 
@@ -607,37 +655,26 @@
           `${Date.now()}-${Math.random()}`
         );
 
-        const resp = await fetch(
-          url.href,
-          {
-            cache: 'no-store',
-            credentials: 'omit',
-            redirect: 'follow',
-            headers: {
-              'Accept':
-                'text/csv,text/plain,*/*'
-            }
+        const resp = await fetch(url.href, {
+          cache: 'no-store',
+          credentials: 'omit',
+          redirect: 'follow',
+          headers: {
+            'Accept': 'text/csv,text/plain,*/*'
           }
-        );
+        });
 
         if (!resp.ok) {
-          throw new Error(
-            `HTTP ${resp.status}`
-          );
+          throw new Error(`HTTP ${resp.status}`);
         }
 
-        return csvToGrid(
-          await resp.text()
-        );
+        return csvToGrid(await resp.text());
       } catch (e) {
         last = e;
       }
     }
 
-    throw last ||
-      new Error(
-        '試算表 CSV 讀取失敗'
-      );
+    throw last || new Error('試算表 CSV 讀取失敗');
   }
 
   async function load() {
@@ -647,7 +684,6 @@
     }
 
     state.busy = true;
-
     const request = ++state.request;
 
     state.loaded = false;
@@ -662,11 +698,7 @@
       try {
         data = await loadCSV();
       } catch (e) {
-        console.warn(
-          'CSV 讀取失敗，改用 JSONP：',
-          e
-        );
-
+        console.warn('CSV 讀取失敗，改用 JSONP：', e);
         data = await loadJSONP();
       }
 
@@ -684,18 +716,10 @@
       state.records = parsed.records;
       state.loaded = true;
 
-      $('siteTitle').textContent =
-        parsed.titles.title;
-
-      $('siteSubtitle').textContent =
-        parsed.titles.subtitle;
-
-      document.title =
-        parsed.titles.title;
-
-      $('siteTitle').removeAttribute(
-        'aria-busy'
-      );
+      $('siteTitle').textContent = parsed.titles.title;
+      $('siteSubtitle').textContent = parsed.titles.subtitle;
+      document.title = parsed.titles.title;
+      $('siteTitle').removeAttribute('aria-busy');
 
       render();
     } catch (e) {
@@ -705,7 +729,6 @@
         !document.hidden
       ) {
         console.error(e);
-
         showLoading(
           '最新試算表資料讀取失敗，請確認分享權限與工作表 gid；不顯示舊資料。'
         );
@@ -722,100 +745,64 @@
     }
   }
 
-  document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-      $('searchInput').addEventListener(
-        'input',
-        render
-      );
+  document.addEventListener('DOMContentLoaded', () => {
+    $('searchInput').addEventListener('input', render);
 
-      $('clearBtn').addEventListener(
-        'click',
-        () => {
-          $('searchInput').value = '';
-          render();
-          $('searchInput').focus();
-        }
-      );
+    $('clearBtn').addEventListener('click', () => {
+      $('searchInput').value = '';
+      render();
+      $('searchInput').focus();
+    });
 
-      showLoading(
-        '正在讀取最新資料…'
-      );
+    showLoading('正在讀取最新資料…');
+    load();
 
-      load();
+    setInterval(() => {
+      if (!document.hidden) load();
+    }, REFRESH_MS);
 
-      setInterval(() => {
-        if (!document.hidden) {
-          load();
-        }
-      }, REFRESH_MS);
-
-      document.addEventListener(
-        'visibilitychange',
-        () => {
-          if (document.hidden) {
-            showLoading(
-              '重新開啟頁面時將同步最新資料…'
-            );
-          } else {
-            load();
-          }
-        }
-      );
-
-      window.addEventListener(
-        'pagehide',
-        () => {
-          showLoading(
-            '重新開啟頁面時將同步最新資料…'
-          );
-        }
-      );
-
-      window.addEventListener(
-        'pageshow',
-        e => {
-          if (e.persisted) {
-            load();
-          }
-        }
-      );
-
-      // 清除舊版 Service Worker。
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .getRegistrations()
-          .then(regs => {
-            const folder = new URL(
-              './',
-              location.href
-            ).pathname;
-
-            regs.forEach(reg => {
-              try {
-                if (
-                  new URL(reg.scope).pathname ===
-                  folder
-                ) {
-                  reg.unregister();
-                }
-              } catch (_) {}
-            });
-          })
-          .catch(() => {});
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        showLoading('重新開啟頁面時將同步最新資料…');
+      } else {
+        load();
       }
-    }
-  );
-})();
- </script>
-</head>
-<body>
- <div class="sky-glow" aria-hidden="true"></div>
- <div class="mist mist-a" aria-hidden="true"></div>
- <div class="mist mist-b" aria-hidden="true"></div>
+    });
 
- <div class="floating-icons" aria-hidden="true">
+    window.addEventListener('pagehide', () => {
+      showLoading('重新開啟頁面時將同步最新資料…');
+    });
+
+    window.addEventListener('pageshow', e => {
+      if (e.persisted) load();
+    });
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then(regs => {
+          const folder = new URL('./', location.href).pathname;
+
+          regs.forEach(reg => {
+            try {
+              if (new URL(reg.scope).pathname === folder) {
+                reg.unregister();
+              }
+            } catch (_) {}
+          });
+        })
+        .catch(() => {});
+    }
+  });
+})();
+</script>
+</head>
+
+<body>
+<div class="sky-glow" aria-hidden="true"></div>
+<div class="mist mist-a" aria-hidden="true"></div>
+<div class="mist mist-b" aria-hidden="true"></div>
+
+<div class="floating-icons" aria-hidden="true">
   <span style="--x:8%;--delay:0s;--duration:13s">✿</span>
   <span style="--x:18%;--delay:2s;--duration:16s">♡</span>
   <span style="--x:31%;--delay:5s;--duration:18s">✦</span>
@@ -823,90 +810,62 @@
   <span style="--x:64%;--delay:4s;--duration:17s">✧</span>
   <span style="--x:80%;--delay:3s;--duration:15s">♡</span>
   <span style="--x:92%;--delay:6s;--duration:19s">✿</span>
- </div>
+</div>
 
- <main class="page-shell">
+<main class="page-shell">
   <section class="hero panel" aria-label="網站首頁">
-   <div class="seal" aria-label="Neni">Neni</div>
+    <div class="seal" aria-label="Neni">Neni</div>
+    <p class="eyebrow">✿ &nbsp; NENI &nbsp; ✦ &nbsp; DAISY WATER &nbsp; ✿</p>
+    <h1 id="siteTitle" aria-busy="true"></h1>
+    <p class="subtitle" id="siteSubtitle"></p>
 
-   <p class="eyebrow">
-    ✿ &nbsp; NENI &nbsp; ✦ &nbsp; DAISY WATER &nbsp; ✿
-   </p>
-
-   <h1 id="siteTitle" aria-busy="true"></h1>
-   <p class="subtitle" id="siteSubtitle"></p>
-
-   <div class="search-card" role="search">
-    <label for="searchInput">
-     懶得找就來查查看
-    </label>
-
-    <div class="search-row">
-     <input
-      id="searchInput"
-      type="search"
-      autocomplete="off"
-      placeholder="輸入帳號或名字搜尋…"
-     />
-     <button id="clearBtn" type="button">
-      顯示全部
-     </button>
+    <div class="search-card" role="search">
+      <label for="searchInput">懶得找就來查查看</label>
+      <div class="search-row">
+        <input id="searchInput" type="search"
+          autocomplete="off"
+          placeholder="輸入帳號或名字搜尋…">
+        <button id="clearBtn" type="button">顯示全部</button>
+      </div>
+      <p id="resultText" class="result-text"
+        role="status" aria-live="polite">
+        資料載入中…
+      </p>
     </div>
-
-    <p
-     id="resultText"
-     class="result-text"
-     role="status"
-     aria-live="polite"
-    >
-     資料載入中…
-    </p>
-   </div>
   </section>
 
-  <section
-   class="panel content-panel"
-   aria-label="存鑽存歌資料列表"
-  >
-   <div
-    class="table-wrap"
-    tabindex="0"
-    aria-label="資料表固定顯示 A 到 I 欄；欄數較多可橫向捲動"
-   >
-    <table>
-     <thead>
-      <tr id="tableHead">
-       <th class="col-a" scope="col">帳號</th>
-       <th class="col-b" scope="col">名字</th>
-       <th class="col-c" scope="col">存歌數量</th>
-       <th class="col-d" scope="col">存爆數量</th>
-       <th class="col-e" scope="col">存鑽數量</th>
-       <th class="col-f" scope="col">存圖數量</th>
-       <th class="col-g" scope="col">存LOL數量</th>
-       <th class="col-h" scope="col">存特戰數量</th>
-       <th class="col-i" scope="col">更新時間</th>
-      </tr>
-     </thead>
-
-     <tbody id="tableBody">
-      <tr class="empty-row">
-       <td colspan="9">資料載入中…</td>
-      </tr>
-     </tbody>
-    </table>
-   </div>
+  <section class="panel content-panel" aria-label="存鑽存歌資料列表">
+    <div class="table-wrap" tabindex="0"
+      aria-label="資料表固定顯示 A 到 I 欄；欄數較多可橫向捲動">
+      <table>
+        <thead>
+          <tr id="tableHead">
+            <th class="col-a" scope="col">帳號</th>
+            <th class="col-b" scope="col">名字</th>
+            <th class="col-c" scope="col">存歌數量</th>
+            <th class="col-d" scope="col">存爆數量</th>
+            <th class="col-e" scope="col">存鑽數量</th>
+            <th class="col-f" scope="col">存圖數量</th>
+            <th class="col-g" scope="col">存LOL數量</th>
+            <th class="col-h" scope="col">存特戰數量</th>
+            <th class="col-i" scope="col">更新時間</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr class="empty-row">
+            <td colspan="9">資料載入中…</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </section>
- </main>
+</main>
 
- <footer class="site-footer">
+<footer class="site-footer">
   <p>✿ 謝謝大家的支持 ｜ Neniの存鑽存歌</p>
   <p>© 2026 LionLionTomato. All Rights Reserved.</p>
   <p>本網站「Neniの存鑽存歌」之頁面設計、程式架構、資料整理方式與視覺呈現，未經授權不得重製、改作或商業使用。</p>
-  <p>
-   <a href="./copyright.html?v=neni-20261106-v11">
-    著作權聲明與使用條款
-   </a>
-  </p>
- </footer>
+  <p><a href="./copyright.html?v=neni-20261106-v11">著作權聲明與使用條款</a></p>
+</footer>
 </body>
 </html>
