@@ -1,0 +1,44 @@
+/* Neni — 以 TO 原站的 class / 尺寸 / 結構為準；只替換水色與背景、擴充 A-I 欄 */
+:root {--sky-50:#f0fbfd;--sky-100:#e2f4f7;--sky-200:#c5e5eb;--sky-300:#9bdae3;--sky-500:#339aac;--sky-bg:#167c90;--ink:#184957;--ink-soft:#4c7780;--paper:rgba(248,255,255,.78);--paper-solid:#f6fdfd;--line:rgba(53,132,147,.22);--shadow:0 24px 70px rgba(5,58,72,.18);--radius:28px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Noto Serif TC','DFKai-SB','KaiTi',serif;overflow-x:hidden;position:relative;background-color:var(--sky-bg);background-image:url('./assets/background-original.webp?v=neni-20261106-v9');background-size:cover;background-position:center center;background-repeat:no-repeat;background-attachment:fixed}
+body::before{display:none}
+.sky-glow{position:fixed;width:54vw;height:54vw;left:-18vw;top:-20vw;border-radius:50%;background:rgba(255,255,255,.11);filter:blur(4px);pointer-events:none}
+.mist{position:fixed;left:-15%;right:-15%;height:220px;border-radius:50%;pointer-events:none;filter:blur(10px);opacity:.12;animation:drift 18s ease-in-out infinite alternate}
+.mist-a{top:220px;background:radial-gradient(ellipse,rgba(255,255,255,.3),transparent 68%)}.mist-b{bottom:60px;background:radial-gradient(ellipse,rgba(189,232,255,.24),transparent 70%);animation-duration:24s}
+@keyframes drift{from{transform:translateX(-3%) translateY(0)}to{transform:translateX(5%) translateY(-18px)}}
+.floating-icons{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}.floating-icons span{position:absolute;left:var(--x);bottom:-80px;font-size:clamp(22px,3vw,42px);opacity:.2;color:#fff;animation:floatUp var(--duration) linear infinite;animation-delay:var(--delay)}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.22}70%{opacity:.2}100%{transform:translateY(-115vh) rotate(28deg);opacity:0}}
+.page-shell{position:relative;z-index:2;width:min(1160px,calc(100% - 32px));margin:0 auto;padding:46px 0 34px}
+.panel{background:var(--paper);backdrop-filter:blur(11px);-webkit-backdrop-filter:blur(11px);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow);border-radius:var(--radius)}
+.hero{min-height:390px;padding:clamp(30px,6vw,68px);position:relative;overflow:hidden;text-align:center;border-bottom:1px solid rgba(38,123,177,.13)}
+.hero::before,.hero::after{content:'';position:absolute;inset:24px;border:1px solid rgba(65,139,151,.24);border-radius:24px;pointer-events:none}.hero::after{inset:38px;border-style:dashed;opacity:.5}
+.seal{width:72px;height:72px;margin:0 auto 12px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(135deg,#278ea3,#93d9df);color:#fff;font-family:'Ma Shan Zheng','Noto Sans TC',sans-serif;font-size:20px;font-weight:900;box-shadow:0 14px 32px rgba(9,109,124,.24);transform:rotate(-6deg)}
+.eyebrow{margin:0 0 10px;letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:#398696;font-weight:700}
+h1,h2{margin:0;font-family:'Noto Sans TC','Noto Serif TC','Microsoft JhengHei',sans-serif;letter-spacing:.03em;font-weight:800}
+h1{font-size:clamp(40px,7.2vw,82px);line-height:1.12;color:#176b80;font-weight:900;letter-spacing:.02em;text-shadow:0 6px 18px rgba(55,147,169,.13);overflow-wrap:anywhere}
+.subtitle{margin:20px auto 0;max-width:680px;color:var(--ink-soft);font-size:18px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.search-card{width:min(720px,100%);margin:30px auto 0;padding:18px;border-radius:24px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);box-shadow:0 15px 40px rgba(25,110,128,.11);text-align:left}
+.search-card label{display:block;margin:0 0 8px 8px;font-weight:900;color:#27778a}.search-row{display:grid;grid-template-columns:1fr auto;gap:10px}
+input[type='search']{width:100%;min-width:0;border:1px solid rgba(65,145,160,.28);background:rgba(248,253,255,.94);color:var(--ink);font:inherit;font-size:18px;border-radius:18px;padding:15px 18px;outline:none;transition:.2s ease}
+input[type='search']:focus{border-color:rgba(33,132,157,.72);box-shadow:0 0 0 4px rgba(96,184,201,.2)}
+button{border:0;border-radius:18px;padding:0 22px;font:inherit;font-weight:900;color:#fff;cursor:pointer;background:linear-gradient(135deg,#208ea5,#65c5d4);box-shadow:0 12px 26px rgba(38,130,148,.22);transition:transform .2s ease,box-shadow .2s ease;min-height:52px}button:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(38,130,148,.28)}
+.result-text{margin:10px 8px 0;color:var(--ink-soft);line-height:1.6}
+.content-panel{margin-top:18px;padding:clamp(20px,4vw,34px)}
+.table-wrap{overflow-x:auto;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.58);scrollbar-color:#75bfca #e8f8f9;scrollbar-width:thin}
+table{width:100%;border-collapse:collapse;table-layout:auto;min-width:1080px}
+th,td{min-width:110px;padding:16px 14px;text-align:center;border-bottom:1px solid rgba(72,139,158,.13);white-space:pre-wrap;overflow-wrap:anywhere;max-width:280px}
+th{font-size:15px;letter-spacing:.045em;color:#fff;font-weight:900;white-space:normal;overflow-wrap:anywhere;vertical-align:middle}
+td{font-size:16px;color:#2d5260}td a{color:#176e91;text-decoration:underline;overflow-wrap:anywhere}tbody tr:hover{background:rgba(231,248,255,.58)}
+.col-a{background:linear-gradient(135deg,#2e98ac,#62c5d5)}.col-b{background:linear-gradient(135deg,#3aaaba,#79d0db)}.col-c{background:linear-gradient(135deg,#799dbf,#b0cfe2)}.col-d{background:linear-gradient(135deg,#cb9eb5,#ead0dd)}.col-e{background:linear-gradient(135deg,#c9a44e,#efcf80)}.col-f{background:linear-gradient(135deg,#73a99e,#a3d6c7)}.col-g{background:linear-gradient(135deg,#8d9ac3,#b9c4e4)}.col-h{background:linear-gradient(135deg,#b59a76,#decbb0)}.col-i{background:linear-gradient(135deg,#669ca9,#9ac9cd)}
+.name-cell{font-weight:900;color:#205e70}.empty-row td{padding:36px 16px;color:var(--ink-soft);border:1px dashed rgba(64,142,165,.35);background:rgba(255,255,255,.45)}
+.site-footer{position:relative;z-index:2;max-width:980px;margin:36px auto 24px;padding:22px 18px;text-align:center;font-family:'Noto Serif TC','Noto Sans TC',serif;color:rgba(244,255,255,.98);font-size:14px;line-height:1.8;text-shadow:0 2px 12px rgba(0,31,44,.65)}.site-footer p{margin:4px 0}.site-footer a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.65)}.site-footer a:hover{opacity:.75}
+@media(max-width:640px){body{background-image:url('./assets/background-mobile.webp?v=neni-20261106-v9');background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:scroll}.page-shell{width:min(calc(100% - 20px),1160px);padding-top:18px}.hero{padding:28px 18px}.search-row{grid-template-columns:1fr}button{min-height:52px}th,td{padding:13px 10px}.site-footer{color:#fff}}
+@media(prefers-reduced-motion:reduce){.mist,.floating-icons span{animation:none}}
+
+/* A-I 皆保留 TO 的固定欄位形式；桌面寬度不足時僅表格橫向捲動，不卡住整個頁面。 */
+.table-wrap{max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain}
+@media(max-width:640px){body{background-size:contain;background-color:#176d83;background-position:center top}.table-wrap{border-radius:18px}}
+
+/* 尚未從最新試算表取回文字前，標題不使用舊資料佔位。 */
+#siteTitle[aria-busy="true"]{min-height:1.3em}
