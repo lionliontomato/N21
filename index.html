@@ -18,12 +18,32 @@
  <link rel="stylesheet" href="./style-neni-20261106-v9.css?v=neni-20261106-v11" />
 
  <style>
-  /* 統一背景效果：取消額外覆蓋的偏側光暈與霧氣 */
+  /* 背景亮度平衡：保留原圖，只修正偏側光暈、霧化與手機尺寸 */
   .sky-glow,
   .mist,
   .mist-a,
   .mist-b {
    display: none !important;
+  }
+
+  /* 左側輕微降亮，往右逐漸淡出，不影響搜尋或資料內容 */
+  body::before {
+   content: "";
+   display: block !important;
+   position: fixed;
+   inset: 0;
+   pointer-events: none;
+   z-index: 0;
+   background: linear-gradient(90deg,
+    rgba(15, 78, 95, .16) 0%,
+    rgba(15, 78, 95, .08) 42%,
+    rgba(15, 78, 95, 0) 100%);
+  }
+
+  @media (max-width: 640px) {
+   body {
+    background-size: cover !important;
+   }
   }
  </style>
 
